@@ -23,3 +23,11 @@ body {
 #maça {
     display: none;
 }
+#Score{
+    color: white;
+    font-size:120px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,6 +1,7 @@
 const canvas = document.getElementById("game");
 const game = canvas.getContext("2d");
 const appleImg = document.getElementById("maça");
+const placar = document.getElementById("Score");
 
 const HEIGHT = 600;
 const WIDHT = 600;
@@ -12,6 +13,8 @@ const snake = {
     y: HEIGHT / 12 * Math.floor(Math.random() * 12),
     score: 0,
 }
+
+placar.innerHTML = snake.score;
 
 const apple = {
     x : WIDHT / 12 * Math.floor(Math.random() * 12),
@@ -65,5 +68,5 @@ function getScore(cobra, maça) {
 }
 
 function writeScore() {
-    document.getElementById("Score").innerHTML = snake.score;
+     placar.innerHTML = snake.score;
 }
