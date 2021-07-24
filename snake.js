@@ -32,8 +32,8 @@ export function growSnakeUp(size = SNAKE_GROW) {
 
 function checkIfSnakeDied() {
     snakeBody.some(element => {
-        if (element.x > GAMEBOARD_SIZE || element.x < 0 || element.y > GAMEBOARD_SIZE || element.y < 0) {
-            alert("perdeu")
+        if (element.x > GAMEBOARD_SIZE || element.x < 0 || element.y > GAMEBOARD_SIZE + 1 || element.y == 0) {
+            alert(GAMEBOARD_SIZE)
             snakeBody = [ {x: 10, y: 10} ]
             resetInputDirection()
         }
