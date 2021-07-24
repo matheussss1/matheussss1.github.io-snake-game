@@ -1,6 +1,6 @@
 import { onSnake, growSnakeUp } from './snake.js'
 
-let food = { x: 3, y: 1 }
+let food = { x: 6, y: 5 }
 
 export function drawFood(gameBoard) {
     const foodElement =  document.createElement("img")
@@ -14,5 +14,10 @@ export function drawFood(gameBoard) {
 export function updateFood() {
     if (onSnake(food)){
         growSnakeUp()
+        setNewRandomFoodPosition()
     }
 }
+
+// function setNewRandomFoodPosition {
+//     if ()
+// }

@@ -11,7 +11,7 @@ export function updateSnake() {
 
     snakeBody[0].x += inputDirection.x
     snakeBody[0].y += inputDirection.y
-    checkIfSnakeDied()
+    // checkIfSnakeDied()
 }
 
 export function drawSnake(gameBoard){
