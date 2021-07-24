@@ -1,14 +1,12 @@
 import { drawSnake, updateSnake } from "./snake.js";
 import { drawFood /*updateFood*/ } from "./food.js";
-
+import { SNAKE_SPEED, GAMEBOARD_SIZE, GAMEBOARD } from './gameConfig.js'
 
 let lastRended = 0;
-const SNAKE_SPEED = 5;
-export const GAMEBOARD_SIZE = 17;
 
-const gameBoard = document.getElementById("gameboard");
-gameBoard.style.gridTemplateColumns = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
-gameBoard.style.gridTemplateRows = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
+
+GAMEBOARD.style.gridTemplateColumns = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
+GAMEBOARD.style.gridTemplateRows = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
 
 function main(currentTime) {
     window.requestAnimationFrame(main)
@@ -29,7 +27,7 @@ function update() {
 }
 
 function draw() {
-    gameBoard.innerHTML = ''
-    drawSnake(gameBoard)
-    drawFood(gameBoard)
+    GAMEBOARD.innerHTML = ''
+    drawSnake(GAMEBOARD)
+    drawFood(GAMEBOARD)
 }
