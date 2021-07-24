@@ -24,3 +24,8 @@ function setInputDirection(keyCode) {
         return inputDirection = { x: 1, y : 0}
     }
 }
+
+export function resetInputDirection() {
+    inputDirection = { x:0, y:0}
+    return true
+}

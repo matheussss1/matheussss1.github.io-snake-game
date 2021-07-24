@@ -1,5 +1,5 @@
 import { drawSnake, updateSnake } from "./snake.js";
-import { drawFood /*updateFood*/ } from "./food.js";
+import { drawFood } from "./food.js";
 import { SNAKE_SPEED, GAMEBOARD_SIZE, GAMEBOARD } from './gameConfig.js'
 
 let lastRended = 0;
@@ -16,8 +16,8 @@ function main(currentTime) {
 
     lastRended = currentTime
 
-    update()
     draw()
+    update()
 }
 
 window.requestAnimationFrame(main)
