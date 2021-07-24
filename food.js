@@ -1,3 +1,5 @@
+import { onSnake, growSnakeUp } from './snake.js'
+
 let food = { x: 3, y: 1 }
 
 export function drawFood(gameBoard) {
@@ -9,13 +11,8 @@ export function drawFood(gameBoard) {
     gameBoard.appendChild(foodElement);
 }
 
-export function onFood(snakeHead) {
-    if (snakeHead.x == food.x && snakeHead.y == food.y) {
-        updateFood()
-        return true
+export function updateFood() {
+    if (onSnake(food)){
+        growSnakeUp()
     }
-}
-
-function updateFood() {
-    
 }

@@ -1,9 +1,8 @@
 import { drawSnake, updateSnake } from "./snake.js";
-import { drawFood } from "./food.js";
+import { drawFood, updateFood } from "./food.js";
 import { SNAKE_SPEED, GAMEBOARD_SIZE, GAMEBOARD } from './gameConfig.js'
 
 let lastRended = 0;
-
 
 GAMEBOARD.style.gridTemplateColumns = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
 GAMEBOARD.style.gridTemplateRows = `repeat(${GAMEBOARD_SIZE}, 1fr)`;
@@ -24,6 +23,7 @@ window.requestAnimationFrame(main)
 
 function update() {
     updateSnake()
+    updateFood()
 }
 
 function draw() {
