@@ -1,13 +1,14 @@
 let inputDirection = { x:0, y:0}
-let lastInputDirection = inputDirection
-
-window.addEventListener('keydown', (e) => {
-    setInputDirection(e.key)
-})
 
 export function getInputDirection() {
+    window.onload = window.addEventListener('keydown', (e) => {
+        setInputDirection(e.key)
+    })
     return inputDirection
 }
+
+let lastInputDirection = inputDirection
+
 
 function setInputDirection(keyCode) {
     lastInputDirection = inputDirection

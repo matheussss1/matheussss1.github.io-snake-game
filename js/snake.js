@@ -1,11 +1,14 @@
 import { getInputDirection, resetInputDirection } from "./input.js"
 import { GAMEBOARD_SIZE, SNAKE_GROW } from "./config/gameConfig.js"
 
-let snakeBody = [ {x: Math.floor(Math.random() * 12), y: Math.floor(Math.random() * 12)} ]
+let snakeBody = [{
+    x: Math.floor(Math.random() * 12),
+    y: Math.floor(Math.random() * 12)
+}]
 
 export function updateSnake() {
     const inputDirection = getInputDirection()
-    turnFaceArround(inputDirection)
+    turnSnakeFaceArround(inputDirection)
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = {...snakeBody[i]}
     }
@@ -25,7 +28,7 @@ export function drawSnake(gameBoard){
 
 export function growSnakeUp(size = SNAKE_GROW) {
     for (let i = 0; i < size; i++) {
-        snakeBody.push({...snakeBody[snakeBody.length - 1]})
+        snakeBody.push({...snakeBody[snakeBody.length]})
     }
 }
 
@@ -43,7 +46,7 @@ export function onSnake(foodObject) {
     return snakeBody[0].x == foodObject.x && snakeBody[0].y == foodObject.y
 }
 
-function turnFaceArround({ x, y }) {
+export function turnSnakeFaceArround({ x, y }) {
     const snakeHead = getSnakeDOM()
     return rotateSnakeHeadCSS(snakeHead[0], x, y)
 }
@@ -53,14 +56,15 @@ function getSnakeDOM() {
 }
 
 function rotateSnakeHeadCSS(SnakeHTMLElement, x, y) {
-    if (x == 0 && y == -1) {
+    if (x == 0 && y == -1)
         SnakeHTMLElement.style.transform = "rotate(0deg)"
-    }
-    else if(x == 0 && y == 1) {
+
+    else if (x == 0 && y == 1)
         SnakeHTMLElement.style.transform = "rotate(180deg)"
-    }else if(x == 1 && y == 0) {
+
+    else if(x == 1 && y == 0)
         SnakeHTMLElement.style.transform = "rotate(90deg)"
-    }else if (x == -1 && y == 0) {
+
+    else if (x == -1 && y == 0)
         SnakeHTMLElement.style.transform = "rotate(270deg)"
-    }
 }
