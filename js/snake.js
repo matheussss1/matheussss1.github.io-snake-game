@@ -10,8 +10,10 @@ let snakeBody = [{
 export function updateSnake() {
     const inputDirection = getInputDirection()
     turnSnakeFaceArround(inputDirection)
+
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = {...snakeBody[i]}
+        console.log(snakeBody[i])
     }
     snakeBody[0].x += inputDirection.x
     snakeBody[0].y += inputDirection.y
@@ -21,7 +23,7 @@ export function drawSnake(gameBoard){
     snakeBody.forEach( element => {
         if (snakeIsDead(element.y, element.x))
             return endGame()
-        
+
         const snakeElement =  document.createElement("div")
         snakeElement.style.gridColumnStart = element.x;
         snakeElement.style.gridRowStart = element.y;
