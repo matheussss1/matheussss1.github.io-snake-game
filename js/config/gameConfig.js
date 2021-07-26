@@ -1,4 +1,4 @@
-export const SNAKE_SPEED = 7.6;
+export const SNAKE_SPEED = 12;
 
 export const GAMEBOARD_SIZE = 17;
 

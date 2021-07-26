@@ -1,4 +1,5 @@
 import { getInputDirection, resetInputDirection } from "./input.js"
+import { endGame } from "../game.js"
 import { GAMEBOARD_SIZE, SNAKE_GROW } from "./config/gameConfig.js"
 
 let snakeBody = [{
@@ -18,6 +19,9 @@ export function updateSnake() {
 
 export function drawSnake(gameBoard){
     snakeBody.forEach( element => {
+        if (snakeIsDead(element.y, element.x))
+            return endGame()
+        
         const snakeElement =  document.createElement("div")
         snakeElement.style.gridColumnStart = element.x;
         snakeElement.style.gridRowStart = element.y;
@@ -32,18 +36,16 @@ export function growSnakeUp(size = SNAKE_GROW) {
     }
 }
 
-function checkIfSnakeDied() {
-    snakeBody.some(element => {
-        if (element.x > GAMEBOARD_SIZE || element.x < 0 || element.y > GAMEBOARD_SIZE + 1 || element.y == 0) {
-            alert(GAMEBOARD_SIZE)
-            snakeBody = [ {x: 10, y: 10} ]
-            resetInputDirection()
-        }
-    })
+function snakeIsDead(x, y) {
+    if (x > GAMEBOARD_SIZE || x < 0 || y > GAMEBOARD_SIZE || y == 0) {
+        return true
+    }
+
+    snakeBody.some(element =>  onSnake(element))
 }
 
-export function onSnake(foodObject) {
-    return snakeBody[0].x == foodObject.x && snakeBody[0].y == foodObject.y
+export function onSnake(Object) {
+    return snakeBody[0].x == Object.x && snakeBody[0].y == Object.y
 }
 
 export function turnSnakeFaceArround({ x, y }) {

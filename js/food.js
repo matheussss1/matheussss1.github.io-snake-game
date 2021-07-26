@@ -1,6 +1,10 @@
 import { onSnake, growSnakeUp } from './snake.js'
+import { GAMEBOARD_SIZE } from './config/gameConfig.js'
 
-let food = { x: 6, y: 5 }
+let food = {
+    x: Math.floor(Math.random() * GAMEBOARD_SIZE),
+    y: Math.floor(Math.random() * GAMEBOARD_SIZE)
+}
 
 export function drawFood(gameBoard) {
     const foodElement =  document.createElement("img")
@@ -16,8 +20,14 @@ export function updateFood() {
         growSnakeUp()
         setNewRandomFoodPosition()
     }
+    return
 }
 
-// function setNewRandomFoodPosition {
-//     if ()
-// }
+function setNewRandomFoodPosition(){
+    food && (
+        food = {
+            x: Math.floor(Math.random() * GAMEBOARD_SIZE),
+            y: Math.floor(Math.random() * GAMEBOARD_SIZE)
+        }
+    )
+}

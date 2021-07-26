@@ -12,7 +12,6 @@ function main(currentTime) {
     let secondsSinceLastRender = (currentTime - lastRended) / 1000
     
     if (secondsSinceLastRender  < 1 / SNAKE_SPEED) return
-
     lastRended = currentTime
 
     draw()
@@ -30,4 +29,8 @@ function draw() {
     GAMEBOARD.innerHTML = ''
     drawSnake(GAMEBOARD)
     drawFood(GAMEBOARD)
+}
+
+export function endGame() {
+    window.cancelAnimationFrame(lastRended)
 }
