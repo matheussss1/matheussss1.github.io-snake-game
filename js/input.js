@@ -3,7 +3,6 @@ let lastInputDirection = inputDirection
 
 window.addEventListener('keydown', (e) => {
     setInputDirection(e.key)
-    lastInputDirection = inputDirection
 })
 
 export function getInputDirection() {
@@ -11,6 +10,8 @@ export function getInputDirection() {
 }
 
 function setInputDirection(keyCode) {
+    lastInputDirection = inputDirection
+
     if (lastInputDirection.y !== 1 && (keyCode == 'w' || keyCode == 'ArrowUp')) {
         return inputDirection = { x: 0, y: -1}
     }

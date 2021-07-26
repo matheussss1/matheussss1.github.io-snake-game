@@ -1,6 +1,6 @@
-import { drawSnake, updateSnake } from "./snake.js";
-import { drawFood, updateFood } from "./food.js";
-import { SNAKE_SPEED, GAMEBOARD_SIZE, GAMEBOARD } from './gameConfig.js'
+import { drawSnake, updateSnake } from "./js/snake.js";
+import { drawFood, updateFood } from "./js/food.js";
+import { SNAKE_SPEED, GAMEBOARD_SIZE, GAMEBOARD } from './js/config/gameConfig.js'
 
 let lastRended = 0;
 
