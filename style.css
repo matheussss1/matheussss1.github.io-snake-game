@@ -26,7 +26,28 @@ body {
 .snake{
   background-color: green;
   border: .4vmin solid lawngreen;
+  position: relative;
 }
+
+.snake:nth-child(1)::after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background-color: white;
+}
+.snake:nth-child(1)::before{
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-color: white;
+}
+
 .food{
   display: block;
   width: 100%;
